@@ -1,12 +1,12 @@
-# Docker Template
-[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/nicholaswilde/template)](https://hub.docker.com/r/nicholaswilde/template)
-[![Docker Pulls](https://img.shields.io/docker/pulls/nicholaswilde/template)](https://hub.docker.com/r/nicholaswilde/template)
-[![GitHub](https://img.shields.io/github/license/nicholaswilde/docker-template)](./LICENSE)
-[![ci](https://github.com/nicholaswilde/docker-template/workflows/ci/badge.svg)](https://github.com/nicholaswilde/docker-template/actions?query=workflow%3Aci)
-[![lint](https://github.com/nicholaswilde/docker-template/workflows/lint/badge.svg?branch=main)](https://github.com/nicholaswilde/docker-template/actions?query=workflow%3Alint)
+# Docker blog
+[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/nicholaswilde/blog)](https://hub.docker.com/r/nicholaswilde/blog)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nicholaswilde/blog)](https://hub.docker.com/r/nicholaswilde/blog)
+[![GitHub](https://img.shields.io/github/license/nicholaswilde/docker-blog)](./LICENSE)
+[![ci](https://github.com/nicholaswilde/docker-blog/workflows/ci/badge.svg)](https://github.com/nicholaswilde/docker-blog/actions?query=workflow%3Aci)
+[![lint](https://github.com/nicholaswilde/docker-blog/workflows/lint/badge.svg?branch=main)](https://github.com/nicholaswilde/docker-blog/actions?query=workflow%3Alint)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-A template repo for Docker images.
+A multi-architecture image of [m1k1o's](https://github.com/m1k1o/) [blog](https://github.com/m1k1o/blog).
 
 ## Dependencies
 
@@ -16,14 +16,16 @@ A template repo for Docker images.
 ### docker cli
 
 ```bash
-$ docker run -d \
-  --name=template \
-  -e TZ=America/Los_Angeles `# optional` \
-  -e PUID=1000  `# optional` \
-  -e PGID=1000   `# optional` \
-  -p 3000:3000 \
-  --restart unless-stopped \
-  nicholaswilde/template
+docker run -d \
+  -p 80:80 \
+  -e "TZ=Europe/Vienna" \
+  -e "BLOG_TITLE=Blog" \
+  -e "BLOG_NAME=Max Musermann" \
+  -e "BLOG_NICK=username" \
+  -e "BLOG_PASS=password" \
+  -e "BLOG_LANG=en" \
+  -v $PWD/data:/var/www/html/data \
+  nicholaswilde/blog:latest
 ```
 
 ### docker-compose
@@ -32,11 +34,11 @@ See [docker-compose.yaml](./docker-compose.yaml).
 
 ## Development
 
-See [Wiki](https://github.com/nicholaswilde/docker-template/wiki/Development).
+See [Wiki](https://github.com/nicholaswilde/docker-blog/wiki/Development).
 
 ## Troubleshooting
 
-See [Wiki](https://github.com/nicholaswilde/docker-template/wiki/Troubleshooting).
+See [Wiki](https://github.com/nicholaswilde/docker-blog/wiki/Troubleshooting).
 
 ## Pre-commit hook
 

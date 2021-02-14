@@ -28,6 +28,10 @@ docker run -d \
   nicholaswilde/blog:latest
 ```
 
+|   user   | uid |
+|:--------:|:---:|
+| www-data |  33 |
+
 ### docker-compose
 
 See [docker-compose.yaml](./docker-compose.yaml).

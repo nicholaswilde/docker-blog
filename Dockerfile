@@ -21,7 +21,7 @@ RUN \
   rm -rf \
     Dockerfile \
     docker-compose.* \
-    *.md \
+    ./*.md \
     .gitignore
 
 FROM php:7.4-apache

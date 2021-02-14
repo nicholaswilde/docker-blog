@@ -1,17 +1,20 @@
 ---
 version: "2.1"
 services:
-  installer:
-    image: nicholaswilde/template:latest
-    container_name: template
+  blog:
+    image: nicholaswilde/blog:latest
+    container_name: blog
+    environment:
+      TZ: America/Los_Angeles
+      BLOG_TITLE: Blog
+      BLOG_NAME: Max Musermann
+      BLOG_NICK: username
+      BLOG_PASS: password
+      BLOG_LANG: en
     ports:
-      - 3000:3000
+      - 80:80
     restart: unless-stopped
     volumes:
-      - app:/app
-      - config:/config
-      - defaults:/defaults
+      - data:/var/www/html/data
 volumes:
-  app:
-  config:
-  defaults:
+  data:

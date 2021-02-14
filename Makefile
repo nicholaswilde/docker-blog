@@ -20,7 +20,7 @@ build-latest: Dockerfile
 
 ## checksum	: Get the checksum of a file
 checksum:
-	wget -qO- --show-progress "https://github.com/$(IMAGE_NAME)/$(IMAGE_NAME)/releases/download/v${VERSION}/Leantime-v${VERSION}.tar.gz" | sha256sum
+	wget -qO- --show-progress "https://github.com/m1k1o/$(IMAGE_NAME)/archive/${VERSION}.tar.gz" | sha256sum
 
 ## date		: Check the image date
 date:
@@ -48,7 +48,7 @@ no-cache:
 
 ## packages	: Display package versions
 packages:
-	docker run --rm -it "${BASE}" /bin/ash -c "apk update && apk policy ${PACKAGES}"
+	docker run --rm -it "${BASE}" /bin/bash -c "apt-get update && apt-cache policy  ${PACKAGES}"
 
 ## prune		: Prune the docker builder
 prune:

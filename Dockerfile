@@ -39,7 +39,7 @@ RUN \
     zlib1g-dev=1:1.2.11.dfsg-1 \
     libpng-dev=1.6.36-6 \
     libjpeg-dev=1:1.5.2-2+deb10u1 \
-    libwebp-dev=0.6.1-2 \
+    libwebp-dev=0.6.1-2+deb10u1 \
     libxpm-dev=1:3.5.12-1 \
     libfreetype6-dev=2.9.1-3+deb10u2 && \
   rm -rf /var/lib/apt/lists/* && \
